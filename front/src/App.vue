@@ -25,12 +25,12 @@
         v-if="phase != 'PSEUDONYM'"
       >
         <div class="pititbac-logo is-mobile" aria-hidden="true">
-          <img src="./assets/logo.svg" alt="Pitit Bac" />
+          <img src="./assets/naplogo.png" alt="Pitit Bac" />
         </div>
         <div class="columns layout-columns">
           <div class="column is-3">
             <div class="pititbac-logo">
-              <img src="./assets/logo.svg" alt="Pitit Bac" />
+              <img src="./assets/naplogo.png" alt="Pitit Bac" />
             </div>
             <morel-players
               :master-confirm-message="
@@ -63,7 +63,7 @@
         <div class="columns">
           <div class="column is-half is-offset-3">
             <header class="init-logo">
-              <img src="./assets/logo.svg" alt="Pitit Bac" />
+              <img src="./assets/naplogo.png" alt="Pitit Bac" />
             </header>
             <morel-ask-pseudonym />
           </div>
@@ -74,7 +74,7 @@
     <footer class="footer" :class="{ 'is-loading': has_fullscreen_message }">
       <div class="content has-text-centered">
         <p>
-          <i18n path="Pitit Bac is brought to you by {name}.">
+          <i18n path="NaPtit Bac is based on Pitit Bac, developed by {name}.">
             <a href="https://amaury.carrade.eu" slot="name"
               >Amaury Carrade</a
             > </i18n

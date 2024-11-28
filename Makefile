@@ -13,7 +13,7 @@ start-back-production:
 	cd back && npm run prod
 
 watch-front:
-	cd front && npm run serve
+	cd front && NODE_OPTIONS=--openssl-legacy-provider npm run serve
 
 lint-front:
 	cd front && npm run lint

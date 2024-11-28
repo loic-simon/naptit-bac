@@ -1,5 +1,5 @@
 {
-  "Pitit Bac is brought to you by {name}.": "Pitit Bac est réalisé par {name}.",
+  "NaPtit Bac is based on Pitit Bac, developed by {name}.": "NaPitit Bac est dérivé de Pitit Bac, développé par {name}.",
   "This application is {open_source}.": "Cette application est {open_source}.",
   "open source, and published under a free licence": "à sources ouvertes, et publiée sous une licence libre",
 
@@ -137,7 +137,7 @@
   "Winner | Winners": "Vainqueur | Vainqueurs",
   "Runner-up | Runners-up": "Deuxième | Deuxièmes",
   "Third | Third": "Troisième | Troisièmes",
-  "and":  "et",
+  "and": "et",
 
   "1{st}": "1{st}",
   "2{nd}": "2{nd}",
