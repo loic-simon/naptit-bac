@@ -17,7 +17,8 @@ import {
   faUserAltSlash,
   faUserShield,
   faClipboard,
-  faAward
+  faAward,
+  faQrcode
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -49,7 +50,8 @@ library.add(
   faUserAltSlash,
   faUserShield,
   faClipboard,
-  faAward
+  faAward,
+  faQrcode
 );
 
 Vue.component("vue-fontawesome", FontAwesomeIcon);
@@ -100,8 +102,7 @@ const store = new Vuex.Store({
     },
     categories_by_everyone: false,
     search_engines: {
-      Google: "http://www.google.com/search?q={s}",
-      Qwant: "https://qwant.com/?q={s}&t=web"
+      Google: "http://www.google.com/search?q={s}"
     },
     sticky_players_list: false
   },

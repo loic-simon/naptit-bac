@@ -26,11 +26,11 @@ export class Game {
       alphabet: "",
       scores: {
         // The answer is valid, accepted by the players, and is not duplicated.
-        valid: 10,
+        valid: 1,
 
         // Same as the above, but another player answered the same thing for this
         // category.
-        duplicate: 5,
+        duplicate: 0.5,
 
         // The answer is invalid (does not start with the good letter).
         invalid: 0,
@@ -639,7 +639,7 @@ export class Game {
   }
 
   check_for_vote_end() {
-    if (Game.first_included_into_second(this.current_round_votes_ready, this.online_players_uuids())) {
+    if (this.current_round_votes_ready.includes(this.master_player_uuid)) {
       if (this.current_round === this.configuration.turns) {
         this.end_game();
       }
@@ -655,7 +655,7 @@ export class Game {
     this.log("Ending game…");
 
     // For each connected player, we count its scores
-    Object.keys(this.players).forEach(uuid => {
+    Object.entries(this.players).forEach(([uuid, player]) => {
       let score = 0;
 
       Object.keys(this.rounds).forEach(round => {
@@ -702,6 +702,8 @@ export class Game {
         });
       });
 
+      this.log(`  * ${player.pseudonym}: ${score}`);
+
       this.final_scores.push({
         uuid: uuid,
         score: score
@@ -725,6 +727,7 @@ export class Game {
   }
 
   restart(uuid) {
+    return  // no restarting here
     if (this.state !== "END") return;
     if (uuid !== this.master_player_uuid) return;
 

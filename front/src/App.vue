@@ -46,6 +46,20 @@
               :class="{ 'is-sticky': sticky_players_list }"
             />
             <morel-share-game />
+            <section class="share-game">
+              <p class="control copy-button" style="margin-top: 10px;">
+                <b-button class="button" icon-left="qrcode" @click.prevent="toggle_qrcode_modale()" :expanded="true">
+                  {{ $t("Show QR code") }}
+                </b-button>
+              </p>
+            </section>
+            <b-modal :active="qrcode_opened" :on-cancel="toggle_qrcode_modale">
+              <div style="display: flex; justify-content: space-around; ">
+                <div style=" background-color: #ffffff; padding: 50px; border-radius: 5px;">
+                  <qrcode-vue :value="qrcode_url" :size="300" level="H" background="#ffffff00" foreground="#5405ff" />
+                </div>
+              </div>
+            </b-modal>
           </div>
           <div class="column is-9">
             <GameConfiguration v-if="phase === 'CONFIG'"></GameConfiguration>
@@ -95,6 +109,7 @@
 
 <script>
 import { mapState } from "vuex";
+import QrcodeVue from "qrcode.vue";
 
 import GameConfiguration from "./components/GameConfiguration.vue";
 import Game from "./components/Game.vue";
@@ -103,8 +118,14 @@ import GameEnd from "./components/GameEnd.vue";
 
 export default {
   name: "App",
+  data() {
+    return {
+      qrcode_opened: false,
+    };
+  },
   computed: {
     ...mapState("morel", {
+      qrcode_url: state => `${window.location.origin}/${state.slug}`,
       phase: state => state.phase,
       loading: state => state.loading,
       loading_reason: state => state.loading_reason,
@@ -113,7 +134,12 @@ export default {
     ...mapState(["sticky_players_list"]),
     has_fullscreen_message() {
       return !!this.loading || (!!this.error && !!this.error.title);
-    }
+    },
+  },
+  methods: {
+    toggle_qrcode_modale() {
+      this.qrcode_opened = !this.qrcode_opened;
+    },
   },
 
   watch: {
@@ -126,7 +152,8 @@ export default {
     GameConfiguration,
     Game,
     GameVote,
-    GameEnd
+    GameEnd,
+    QrcodeVue
   }
 };
 </script>

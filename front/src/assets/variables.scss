@@ -1,14 +1,14 @@
 @import "~bulma/sass/utilities/_all";
 
-$primary: #5405ff;
+$primary: #00cb9c;
 $primary-invert: findColorInvert($primary);
 
 // Should be used for background under white text
 // (insufficient contrast with $primary).
-$primary-dark: #003755;
+$primary-dark: #5405ff;
 $primary-dark-invert: findColorInvert($primary-dark);
 
-$dark: #001f00;
+$dark: #003755;
 $dark-invert: findColorInvert($dark);
 
 $less-dark: lighten($dark, 10%);
